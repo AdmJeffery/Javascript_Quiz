@@ -7,11 +7,12 @@ var displayScore = document.querySelector("#display");
 var time = document.querySelector("#time");
 var title = document.querySelector("#title");
 
-var question = document.querySelector("#question");
+var questionEl = document.querySelector("#question");
 var opt1 = document.getElementById("opt1");
 var opt2= document.getElementById("opt2");
 var opt3 = document.getElementById("opt3");
 var opt4 = document.getElementById("opt4");
+var nextButton = document.querySelector("nextButton");
 
 var currentQuestion = 0;
 var score = 0;
@@ -21,30 +22,30 @@ var totQuestions = questions.length;
 var questions = [{
   "question":"Inside which HTML element do we put a Javascript tag?",
   "option1": "<head>",
-  "option 2":"<script>",
-  "option 3":"<body>",
-  "option 4" : "<div>",
+  "option2":"<script>",
+  "option3":"<body>",
+  "option4" : "<div>",
   "answer" : "2"
 },{
   "question":"Where is the correct place to put a Javascript tag?",
   "option1": "<head>",
-  "option 2":"<script>",
-  "option 3":"<body>",
-  "option 4" : "<div>",
+  "option2":"<script>",
+  "option3":"<body>",
+  "option4" : "<div>",
   "answer" : "2",
 },{
   "question":"Does an external Javascript file need a <script> tag?",
   "option1": "I don't know",
-  "option 2":"Who cares?",
-  "option 3":"Yes",
-  "option 4" : "No",
+  "option2":"Who cares?",
+  "option3":"Yes",
+  "option4" : "No",
   "answer" : "2",
 },{
   "question":"What is the syntax for creating a function in JS?",
   "option1": "funtion myFunction()",
-  "option 2":"createFunction myFunction()",
-  "option 3":"function:myFunction()",
-  "option 4" : "function = myFunction",
+  "option2":"createFunction myFunction()",
+  "option3":"function:myFunction()",
+  "option4" : "function = myFunction",
   "answer" : "1",
 }];
 
@@ -84,3 +85,13 @@ var timeoutHandle;
 
   countdown(2);
 }
+
+function loadQuestion (questionIndex) {
+  let q = questions[questionIndex];
+  question.El.textContent = (questionIndex + 1) + ". " + q.question;
+  opt1.textContent = q.option1;
+  opt2.textContent = q.option2;
+  opt3.textContent = q.option3;
+  opt4.textcontent = q.option4;
+  
+};
