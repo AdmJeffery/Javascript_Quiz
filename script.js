@@ -37,9 +37,7 @@ var questions = [{
   "option 3":"function:myFunction()",
   "option 4" : "function = myFunction",
   "answer" : "1",
-}
-
-}]
+}];
 
 //if (startButton) {
     startButton.addEventListener("click",startUp);
