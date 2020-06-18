@@ -22,25 +22,24 @@
 
   <div class="container">
     
-    <div class="wrapper">
+      <div class="wrapper">
         <header>
             <h1 id = "title">JavaScript Quiz</h1>
             <div id ="timer" value=0></div>
+            <button id = "start-button">Start Quiz</button>
         </header>
       </div>
       
       <div id = "quizContainer" class="container">
 
         <div id = "question"></div>
-
-        <div id = "answers">
           
-          <button class = "possAnswers" id = "answer1">placeholder</button>
-          <button class = "possAnswers"id = "answer2">placeholder</button>
-          <button class = "possAnswers"id = "answer3">placeholder</button>
-          <button class= "possAnswers"  id = "answer4">placeholder</button>
-
-        <button id = "start-button">Start Quiz</button>
+          <label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
+          <label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
+          <label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
+          <label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
+          
+          <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 
         <div id = "message-box"></div>
 
