@@ -1,13 +1,22 @@
 //window.onload=function(){
     //debugger
 var startButton = document.querySelector("#start-button");
-var question = document.querySelector("#question");
-var answers = document.querySelector("#answers");
 var timer = document.querySelector("#timer");
 var messageBox = document.querySelector("#message-box");
 var displayScore = document.querySelector("#display");
 var time = document.querySelector("#time");
 var title = document.querySelector("#title");
+
+var question = document.querySelector("#question");
+var opt1 = document.getElementById("opt1");
+var opt2= document.getElementById("opt2");
+var opt3 = document.getElementById("opt3");
+var opt4 = document.getElementById("opt4");
+
+var currentQuestion = 0;
+var score = 0;
+var totQuestions = questions.length;
+
 
 var questions = [{
   "question":"Inside which HTML element do we put a Javascript tag?",
