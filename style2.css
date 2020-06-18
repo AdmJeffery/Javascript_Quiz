@@ -4,8 +4,8 @@ body {
 
 .container {
     background-color: aquamarine;
-    height: 400px;
-    width: auto;
+    height: 450px;
+    width: 1000px;
     position: absolute;
     top: 50px;
     left:50px;
@@ -15,14 +15,14 @@ body {
 
 }
 
-.title {
+#title {
     padding-top: 20px;
     text-align: center;
     font-size: 36px;
     text-transform: uppercase;
 }
 
-.question {
+#question {
     padding: 20px;
     font-size: 22px;
     border-radius: 20px;
@@ -36,6 +36,7 @@ body {
     vertical-align: middle;
     margin: 10px 0 10px 10px;
     border-radius: 20px;
+    background: white;
 }
 
 .option:hover {
@@ -48,10 +49,14 @@ body {
     outline: none;
     background-color: darkorchid;
     width: 100px;
-    height: 35px;
+    height: 75px;
     border-radius: 20px;
     cursor: pointer;
     float: right;
     margin: 10px;
 }
 
+.option input:checked .option {
+    background-color:  #08038C;
+    color: green;
+}
