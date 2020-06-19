@@ -9,10 +9,11 @@ var title = document.querySelector("#title");
 
 var questionEl = document.querySelector("#question");
 var opt1 = document.getElementById("opt1");
-var opt2= document.getElementById("opt2");
+var opt2 = document.getElementById("opt2");
 var opt3 = document.getElementById("opt3");
 var opt4 = document.getElementById("opt4");
-var nextButton = document.querySelector("nextButton");
+var options = document.querySelector(".option")
+var nextButton = document.getElementById("nextButton");
 
 var currentQuestion = 0;
 var score = 0;
@@ -95,3 +96,17 @@ function loadQuestion (questionIndex) {
   opt4.textcontent = q.option4;
   
 };
+
+function loadNextQuestion () {
+  var selectedOption = document.querySelector('input[type=radio]:checked');
+  
+  if (!selectedOption){
+    alert ("Please select an answer.")
+    return;
+  }
+
+  var answer = selectedOption.value;
+  if (questions[currentQuestion].answer == answer){
+    score += 1;
+  }
+}
