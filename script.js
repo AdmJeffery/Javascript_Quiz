@@ -6,6 +6,7 @@ var messageBox = document.querySelector("#message-box");
 var displayScore = document.querySelector("#display");
 var time = document.querySelector("#time");
 var title = document.querySelector("#title");
+var quizContainer = document.querySelector("#quizContainer")
 
 var questionEl = document.querySelector("#question");
 var opt1 = document.getElementById("opt1");
@@ -14,10 +15,12 @@ var opt3 = document.getElementById("opt3");
 var opt4 = document.getElementById("opt4");
 var options = document.querySelector(".option")
 var nextButton = document.getElementById("nextButton");
+var textInput
 
 var currentQuestion = 0;
 var score = 0;
 var totQuestions = questions.length;
+
 
 
 var questions = [{
@@ -85,6 +88,7 @@ var timeoutHandle;
   }
 
   countdown(2);
+  loadQuestion(currentQuestion);
 }
 
 function loadQuestion (questionIndex) {
@@ -108,5 +112,16 @@ function loadNextQuestion () {
   var answer = selectedOption.value;
   if (questions[currentQuestion].answer == answer){
     score += 1;
+  }
+
+  selectedOption.checked = false;
+  currentQuestion++;
+  if (currentQuestion == totQuestions-1){
+    nextButton.textContent = "Finish";
+  }
+
+  if (currentQuestion == totQuestions){
+    quizContainer.style.display = "none";
+
   }
 }
