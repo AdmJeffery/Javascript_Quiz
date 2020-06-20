@@ -6,6 +6,7 @@ var displayScore = document.querySelector("#display");
 var time = document.querySelector("#time");
 var title = document.querySelector("#title");
 var quizContainer = document.querySelector("#quizContainer")
+var highScoreList = document.querySelector("highscorelist")
 
 var questionEl = document.querySelector("#question");
 var opt1 = document.getElementById("opt1");
@@ -19,7 +20,7 @@ var displayScore = document.querySelector("#displayScore");
 var currentQuestion = 0;
 var score = 0;
 
-
+var inputInitScore = [];
 
 
 var questions = [{
@@ -133,10 +134,52 @@ function loadNextQuestion () {
 function gameOver () {
  quizContainer.style.display="none"
  nextButton.style.display="none"
- displayScore.textContent = "You achieved a score of" +""+ score + " Enter your initials in the box below.";
+ displayScore.textContent = "You achieved a score of" +" "+ score + " Enter your initials in the box below.";
 
  messageBox.style.display= "block";
 
-let initials
+let initials = document.getElementById("initials");
+userInitials = initials.value.trim();
+
+let enterBtn = document.getElementById("enterinit");
+
+enterBtn.addEventListener("click", function (event){
+
+  event.preventDefault();
+ 
+  if (initials.textContent === ""){
+    alert ("Please enter your initials")
+  } else {
+    let scoreObject = {
+      initials: initials.textContent,
+      score: score
+    }
+
+    inputInitScore.push(scoreObject)
+
+    localStorage.setItem("inputInitScore", JSON.stringify(inputInitScore));
+    displayHighScore()
+  }
+  
+});
+
+function displayHighScore (){
+  messageBox.style.display = "none";
+  enterBtn.style.display = "none";
+
+  var highScoreList = JSON.parse(localStorage.getItem("inputInitScore"));
+  
+  for (i=0; i<inputInitScore.length; i++) {
+    let listing = document.createElement("li");
+
+    let scoreObject = inputInitScore [i];
+    let htmlText = `${scoreObject.initials} - ${scoreObj.score}`;
+    console.log(htmlText);
+
+    listing.innerText = htmlText;
+
+  document.getElementById("highscorelist").appendChild(listing);
+  }
+};
 
 }
