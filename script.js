@@ -152,7 +152,7 @@ userInitials = initials.value.trim();
 
 let enterBtn = document.getElementById("enterinit");
 
-enterBtn.addEventListener("click", function (event){
+enterBtn.addEventListener("click", function (){
 
  
   if (initials.value === ""){
