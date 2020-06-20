@@ -147,7 +147,7 @@ enterBtn.addEventListener("click", function (event){
 
   event.preventDefault();
  
-  if (initials.textContent === ""){
+  if (initials.value === ""){
     alert ("Please enter your initials")
   } else {
     let scoreObject = {
