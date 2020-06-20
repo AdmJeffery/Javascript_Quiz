@@ -14,7 +14,7 @@ var opt3 = document.getElementById("opt3");
 var opt4 = document.getElementById("opt4");
 var options = document.querySelector(".option")
 var nextButton = document.getElementById("nextButton");
-var textInput
+var displayScore = document.querySelector("#displayScore");
 
 var currentQuestion = 0;
 var score = 0;
@@ -23,19 +23,19 @@ var score = 0;
 
 
 var questions = [{
-  question :"Inside which HTML element do we put a Javascript tag?",
+  question :"Inside which HTML element do we put Javascript code? ",
   option1: "<head>",
   option2:"<script>",
   option3:"<body>",
   option4: "<div>",
   answer: "2"
 },{
-  question:"Where is the correct place to put a Javascript tag?",
+  question:"Where is the correct place to put a <script> tag?",
   option1: "<head>",
   option2:"<script>",
   option3:"<body>",
   option4:"<div>",
-  answer: "2"
+  answer: "3"
 },{
   question :"Does an external Javascript file need a <script> tag?",
   option1: "I don't know",
@@ -45,7 +45,7 @@ var questions = [{
   answer: "4"
 },{
   question :"What is the syntax for creating a function in JS?",
-  option1 : "funtion myFunction()",
+  option1 : "function myFunction()",
   option2 :"createFunction myFunction()",
   option3 :"function:myFunction()",
   option4  : "function = myFunction",
@@ -87,6 +87,8 @@ var timeoutHandle;
 
   countdown(2);
   loadQuestion(currentQuestion);
+
+  startButton.style.display="none"
   
 }
 
@@ -129,5 +131,12 @@ function loadNextQuestion () {
 }
 
 function gameOver () {
+ quizContainer.style.display="none"
+ nextButton.style.display="none"
+ displayScore.textContent = "You achieved a score of" +""+ score + " Enter your initials in the box below.";
+
+ messageBox.style.display= "block";
+
+let initials
 
 }

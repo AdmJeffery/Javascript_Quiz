@@ -62,3 +62,10 @@ body {
     color: green;
 }
 
+#message-box {
+    background-color: beige;
+    border-radius: 20px;
+    vertical-align: middle;
+    width: 250px;
+    display: none;
+}
