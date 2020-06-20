@@ -21,7 +21,7 @@ var currentQuestion = 0;
 var score = 0;
 
 var seconds = 0;
-
+var inputInitScore = [];
 
 var questions = [{
   question :"Inside which HTML element do we put Javascript code? ",
@@ -163,7 +163,7 @@ enterBtn.addEventListener("click", function (){
       score: score
     }
     
-    var inputInitScore = [];
+    
     inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
     inputInitScore.push(scoreObject)
 
