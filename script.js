@@ -82,11 +82,14 @@ var timeoutHandle;
 
         }
       }
+      if (seconds === 0){
+        gameOver();
+      }
     }
     tick();
   }
 
-  countdown(2);
+  countdown(1);
   loadQuestion(currentQuestion);
 
   startButton.style.display="none"
