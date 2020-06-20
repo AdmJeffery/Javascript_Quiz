@@ -173,6 +173,7 @@ function gameOver () {
 }
 
 function displayHighScore (){
+    let enterBtn = document.getElementById("enterinit");
     messageBox.style.display = "none";
     enterBtn.style.display = "none";
     displayScore.textContent = "High Scores";
