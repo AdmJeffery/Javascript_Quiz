@@ -22,7 +22,7 @@ var score = 0;
 
 var seconds = 0;
 var inputInitScore = [];
-localStorage.setItem("inputInitScore", "{}");
+localStorage.setItem("inputInitScore", "[]");
 
 var questions = [{
   question :"Inside which HTML element do we put Javascript code? ",
