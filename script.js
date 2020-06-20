@@ -20,7 +20,7 @@ var displayScore = document.querySelector("#displayScore");
 var currentQuestion = 0;
 var score = 0;
 
-var inputInitScore = [];
+var seconds = 0;
 
 
 var questions = [{
@@ -60,7 +60,7 @@ function startUp() {
 var timeoutHandle;
 
   function countdown(minutes, seconds) {
-    var seconds = 60;
+    seconds = 60;
     var mins = minutes
 
     function tick() {
@@ -83,6 +83,7 @@ var timeoutHandle;
         }
       }
       if (seconds === 0){
+        alert ("Time's up!")
         gameOver();
       }
     }
@@ -119,7 +120,10 @@ function loadNextQuestion () {
   var answer = selectedOption.value;
   if (questions[currentQuestion].answer == answer){
     score += 1;
-  } 
+    alert("Correct!");
+  } else {
+    alert("Incorrect.")
+  }
 
   selectedOption.checked = false;
   currentQuestion++;
@@ -159,6 +163,8 @@ enterBtn.addEventListener("click", function (event){
       initials: initials.value,
       score: score
     }
+    
+    var inputInitScore = [];
     inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
     inputInitScore.push(scoreObject)
 
