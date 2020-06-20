@@ -91,6 +91,7 @@ var timeoutHandle;
 
   startButton.style.display="none"
   
+  
 }
 
 function loadQuestion (questionIndex) {
@@ -115,7 +116,7 @@ function loadNextQuestion () {
   var answer = selectedOption.value;
   if (questions[currentQuestion].answer == answer){
     score += 1;
-  }
+  } 
 
   selectedOption.checked = false;
   currentQuestion++;
@@ -134,6 +135,7 @@ function loadNextQuestion () {
 function gameOver () {
  quizContainer.style.display="none"
  nextButton.style.display="none"
+ timer.style.display = "none";
  displayScore.textContent = "You achieved a score of" +" "+ score + " Enter your initials in the box below.";
 
  messageBox.style.display= "block";
@@ -151,10 +153,10 @@ enterBtn.addEventListener("click", function (event){
     alert ("Please enter your initials")
   } else {
     let scoreObject = {
-      initials: initials.textContent,
+      initials: initials.value,
       score: score
     }
-
+    inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
     inputInitScore.push(scoreObject)
 
     localStorage.setItem("inputInitScore", JSON.stringify(inputInitScore));
@@ -166,14 +168,17 @@ enterBtn.addEventListener("click", function (event){
 function displayHighScore (){
   messageBox.style.display = "none";
   enterBtn.style.display = "none";
+  displayScore.textContent = "High Scores";
+  
+
 
   var highScoreList = JSON.parse(localStorage.getItem("inputInitScore"));
   
-  for (i=0; i<inputInitScore.length; i++) {
+  for (i=0; i<highScoreList.length; i++) {
     let listing = document.createElement("li");
 
-    let scoreObject = inputInitScore [i];
-    let htmlText = `${scoreObject.initials} - ${scoreObj.score}`;
+    let scoreObject = highScoreList [i];
+    let htmlText = `${scoreObject.initials} - ${scoreObject.score}`;
     console.log(htmlText);
 
     listing.innerText = htmlText;

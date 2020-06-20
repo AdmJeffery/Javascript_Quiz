@@ -42,7 +42,7 @@ body {
 
 .option:hover {
     background-attachment: #08038c;
-    color: #f6f6f6;
+    color: blueviolet;
 }
 
 .next-btn {
@@ -68,4 +68,8 @@ body {
     vertical-align: middle;
     width: 250px;
     display: none;
+}
+
+#quizcontainer {
+    display: none
 }
