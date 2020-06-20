@@ -4,7 +4,7 @@ body {
 
 .container {
     background-color: aquamarine;
-    height: 450px;
+    height: 600px;
     width: 1000px;
     position: absolute;
     top: 50px;
@@ -23,6 +23,7 @@ body {
 }
 
 #question {
+    width: auto;
     padding: 20px;
     font-size: 22px;
     border-radius: 20px;
@@ -60,3 +61,4 @@ body {
     background-color:  #08038C;
     color: green;
 }
+
