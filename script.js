@@ -120,9 +120,9 @@ function loadNextQuestion () {
   var answer = selectedOption.value;
   if (questions[currentQuestion].answer == answer){
     score += 1;
-    alert("Correct!");
+    
   } else {
-    alert("Incorrect.")
+    
   }
 
   selectedOption.checked = false;
