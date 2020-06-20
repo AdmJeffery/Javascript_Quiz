@@ -141,59 +141,53 @@ function loadNextQuestion () {
 }
 
 function gameOver () {
- quizContainer.style.display="none"
- nextButton.style.display="none"
- timer.style.display = "none";
- displayScore.textContent = "You achieved a score of" +" "+ score + " Enter your initials in the box below.";
+    quizContainer.style.display="none"
+    nextButton.style.display="none"
+    timer.style.display = "none";
+    displayScore.textContent = "You achieved a score of" +" "+ score + " Enter your initials in the box below.";
 
- messageBox.style.display= "block";
+    messageBox.style.display= "block";
 
-let initials = document.getElementById("initials");
-userInitials = initials.value.trim();
+    let initials = document.getElementById("initials");
+    userInitials = initials.value.trim();
 
-let enterBtn = document.getElementById("enterinit");
+    let enterBtn = document.getElementById("enterinit");
 
-enterBtn.addEventListener("click", function (){
+    enterBtn.addEventListener("click", function (){
+        if (initials.value === ""){
+            alert ("Please enter your initials")
+        } else {
+            let scoreObject = {
+                initials: initials.value,
+                score: score
+            }
 
- 
-  if (initials.value === ""){
-    alert ("Please enter your initials")
-  } else {
-    let scoreObject = {
-      initials: initials.value,
-      score: score
-    }
-    
-    
-    inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
-    inputInitScore.push(scoreObject)
 
-    localStorage.setItem("inputInitScore", JSON.stringify(inputInitScore));
-    displayHighScore()
-  }
-  
-});
+            inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
+            inputInitScore.push(scoreObject)
+
+            localStorage.setItem("inputInitScore", JSON.stringify(inputInitScore));
+            displayHighScore()
+        }
+    });
+}
 
 function displayHighScore (){
-  messageBox.style.display = "none";
-  enterBtn.style.display = "none";
-  displayScore.textContent = "High Scores";
-  
+    messageBox.style.display = "none";
+    enterBtn.style.display = "none";
+    displayScore.textContent = "High Scores";
 
+    var highScoreList = JSON.parse(localStorage.getItem("inputInitScore"));
 
-  var highScoreList = JSON.parse(localStorage.getItem("inputInitScore"));
-  
-  for (i=0; i<highScoreList.length; i++) {
-    let listing = document.createElement("li");
+    for (i=0; i<highScoreList.length; i++) {
+        let listing = document.createElement("li");
 
-    let scoreObject = highScoreList [i];
-    let htmlText = `${scoreObject.initials} - ${scoreObject.score}`;
-    console.log(htmlText);
+        let scoreObject = highScoreList [i];
+        let htmlText = `${scoreObject.initials} - ${scoreObject.score}`;
+        console.log(htmlText);
 
-    listing.innerText = htmlText;
+        listing.innerText = htmlText;
 
-  document.getElementById("highscorelist").appendChild(listing);
-  }
+        document.getElementById("highscorelist").appendChild(listing);
+    }
 };
-
-}
