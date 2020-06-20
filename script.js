@@ -154,7 +154,6 @@ let enterBtn = document.getElementById("enterinit");
 
 enterBtn.addEventListener("click", function (event){
 
-  event.preventDefault();
  
   if (initials.value === ""){
     alert ("Please enter your initials")
