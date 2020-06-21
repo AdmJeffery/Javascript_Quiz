@@ -23,13 +23,7 @@ var score = 0;
 var seconds = 0;
 var inputInitScore = [];
 
-function initialization (){
-    var check = localStorage.getItem("inputInitScore");
-    if (check === null){
-    localStorage.setItem("inputInitScore", "[]");
-    }
-}
-initialization();
+
 
 var questions = [{
   question :"Inside which HTML element do we put Javascript code? ",
@@ -61,11 +55,10 @@ var questions = [{
   answer : "1"
 }];
 var totQuestions = questions.length;
-
-    startButton.addEventListener("click",startUp);
+startButton.addEventListener("click",startUp);
 
 function startUp() {
-var timeoutHandle;
+    var timeoutHandle;
 
   function countdown(minutes, seconds) {
     seconds = 60;
@@ -161,6 +154,8 @@ function gameOver () {
     let enterBtn = document.getElementById("enterinit");
 
     enterBtn.addEventListener("click", function (){
+        event.preventDefault();
+
         if (initials.value === ""){
             alert ("Please enter your initials")
         } else {
@@ -171,6 +166,9 @@ function gameOver () {
 
 
             inputInitScore = JSON.parse(localStorage.getItem("inputInitScore"));
+            if (!inputInitScore) {
+                inputInitScore = []
+            }
             inputInitScore.push(scoreObject)
 
             localStorage.setItem("inputInitScore", JSON.stringify(inputInitScore));
