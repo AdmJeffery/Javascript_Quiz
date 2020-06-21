@@ -17,3 +17,4 @@ The following screenshot informs you of the tasks I needed to accomplish.
 While the quiz may not be perfect, I hope you enjoy testing it out!
 
 [JavascriptQuiz] (https://admjeffery.github.io/Javascript_Quiz/?)
+
