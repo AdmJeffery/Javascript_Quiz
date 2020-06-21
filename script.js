@@ -29,6 +29,8 @@ function initialization (){
     localStorage.setItem("inputInitScore", "[]");
     }
 }
+initialization();
+
 var questions = [{
   question :"Inside which HTML element do we put Javascript code? ",
   option1: "<head>",
