@@ -22,8 +22,14 @@ var score = 0;
 
 var seconds = 0;
 var inputInitScore = [];
-localStorage.setItem("inputInitScore", "[]");
+var totQuestions = questions.length;
 
+function initialization (){
+    var check = localStorage.getItem("inputInitScore");
+    if (check === null){
+    localStorage.setItem("inputInitScore", "[]");
+    }
+}
 var questions = [{
   question :"Inside which HTML element do we put Javascript code? ",
   option1: "<head>",
@@ -53,7 +59,7 @@ var questions = [{
   option4  : "function = myFunction",
   answer : "1"
 }];
-var totQuestions = questions.length;
+
 
     startButton.addEventListener("click",startUp);
 
