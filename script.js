@@ -22,7 +22,6 @@ var score = 0;
 
 var seconds = 0;
 var inputInitScore = [];
-var totQuestions = questions.length;
 
 function initialization (){
     var check = localStorage.getItem("inputInitScore");
@@ -59,7 +58,7 @@ var questions = [{
   option4  : "function = myFunction",
   answer : "1"
 }];
-
+var totQuestions = questions.length;
 
     startButton.addEventListener("click",startUp);
 
